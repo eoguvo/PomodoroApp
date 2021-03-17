@@ -133,6 +133,7 @@
 		padding: 1rem;
 		font-size: .75rem;
 		color: var(--primary);
+		transition: all .3s var(--ttf);
 	}
 	.breaks button:hover {
 		opacity: 1;
@@ -166,7 +167,7 @@
 	.watch .content .play {
 		z-index: 10;
 		letter-spacing: 15px;
-		transition: all .2s cubic-bezier(0.4, 0, 0.2, 1);
+		transition: all .2s var(--ttf);
 		margin-top: 2.5rem;
 		font-weight: bold;
 		cursor: pointer;
@@ -191,9 +192,7 @@
 		stroke-dasharray: var(--arr);
 		stroke-dashoffset: var(--off);
 		stroke-width: 4;
-		transition-property: all;
-    	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    	transition-duration: .15s;
+		transition: all .15s var(--ttf);
 		transform-origin: center;
 		stroke-linecap: round;
 		transform: rotate(-90deg);
