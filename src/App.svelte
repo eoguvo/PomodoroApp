@@ -98,7 +98,7 @@
 			{/if}
 		</div>
 	</div>
-	<button on:click="{()=>alert('we are working in this')}" class="config"><img width="24" src="./assets/config.svg" alt="configuration"></button>
+	<button on:click="{()=>alert('we are working in this')}" class="config"><img height="24" width="24" src="./assets/config.svg" alt="configuration"></button>
 </main>
 
 <style>
@@ -106,6 +106,8 @@
 		display: flex;
 		align-items: center;
 		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		height: 100%;
 		text-align: center;
 		width: 90vw;
@@ -123,7 +125,7 @@
 	.breaks {
 		border-radius: 9999px;
 		z-index: 2;
-		margin-bottom: 7rem; /*2.5rem;*/
+		margin-bottom: 3.5rem; /*2.5rem;*/
 		background-color: var(--bg);
 	}
 	.breaks button {
@@ -148,7 +150,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 410px; height: 410px;
+		width: 300px; height: 300px;
 		border-radius: 9999px;
 		background: linear-gradient(to bottom right,#161932,#1e213f);
 		box-shadow: -20px -20px 40px 0 #262b594d, 24px 24px 48px #1215304d;
@@ -199,14 +201,22 @@
 		color: var(--primary);
 	}
 	.config {
-		position: absolute;
-		bottom: 2.5rem;
-		right: 50%; left: 50%;
+		padding-top: 1rem;
+		padding-bottom: 2.5rem;
+		margin-top: auto;
 	}
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
+	@media (min-width: 768px) {
+		.watch {
+			width: 410px; height: 410px;
+		}
+		.breaks {
+			margin-bottom: 7rem;
+		}
+	}
+	@media (min-width: 1024px) {
+		.breaks {
+			margin-bottom: 3.5rem;
 		}
 	}
 </style>

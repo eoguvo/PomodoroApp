@@ -39,6 +39,7 @@ Tabela de conteúdos
 
 - [X] Troca de ciclos
 - [X] Timer
+- [X] Responsividade
 - [ ] Testes
 - [ ] Opção de personanalizar
 
