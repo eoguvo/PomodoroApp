@@ -132,7 +132,7 @@
 		height: 50px;
 		padding: 1rem;
 		font-size: .75rem;
-		opacity: .4;
+		color: var(--primary);
 	}
 	.breaks button:hover {
 		opacity: 1;
