@@ -3,7 +3,7 @@
 	import Modal from './_compontents/Modal.svelte'
 	import formatTime from './_util/formatTime.js'
 
-	let circleRef, interval, circumference=0, dashoffset=0, show = true;
+	let circleRef, interval, circumference=0, dashoffset=0, show = false;
 	let current = 'pomo';
 	let breaks = {pomo: 1500, short: 300, long: 900}
 
