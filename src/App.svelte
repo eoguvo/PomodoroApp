@@ -1,8 +1,11 @@
 <script>
 	import { onMount } from 'svelte'
-	let circleRef, interval, circumference=0, dashoffset=0;
+	import Modal from './_compontents/Modal.svelte'
+	import formatTime from './_util/formatTime.js'
+
+	let circleRef, interval, circumference=0, dashoffset=0, show = true;
 	let current = 'pomo';
-	const breaks = {"pomo": 1500, "short": 300, "long": 900}
+	let breaks = {pomo: 1500, short: 300, long: 900}
 
 	$: time = breaks[current];
 	$: if(circleRef) {
@@ -17,12 +20,6 @@
 			circleRef.style.strokeDashoffset = circumference.toString();
 		}
 	})
-
-	function formatTime(totalSeconds) {
-		const min = (totalSeconds / 60)>>0;
-		const sec = (totalSeconds % 60)>>0;
-		return `${min>10?min:'0'+min}:${sec>10?sec:'0'+sec}`
-	}
 
 	function ResetCircle() {
 		if(circleRef) {
@@ -63,6 +60,10 @@
 			ResetCircle();
 		}
 	}
+	function toggleModal(value) {
+		if(!value) return show = !show;
+		show = value;
+	}
 </script>
 
 <main>
@@ -98,8 +99,11 @@
 			{/if}
 		</div>
 	</div>
-	<button on:click="{()=>alert('we are working in this')}" class="config"><img height="24" width="24" src="./assets/config.svg" alt="configuration"></button>
+	<button on:click="{()=>show=true}" class="config"><img height="24" width="24" src="./assets/config.svg" alt="configuration"></button>
 </main>
+{#if show}
+	<Modal {toggleModal} bind:breaks={breaks} />
+{/if}
 
 <style>
 	main {
@@ -124,7 +128,7 @@
 
 	.breaks {
 		border-radius: 9999px;
-		z-index: 2;
+		z-index: 1;
 		margin-bottom: 3.5rem; /*2.5rem;*/
 		background-color: var(--bg);
 	}
@@ -135,6 +139,7 @@
 		padding: 1rem;
 		font-size: .75rem;
 		color: var(--primary);
+		opacity: .7;
 		transition: all .3s var(--ttf);
 	}
 	.breaks button:hover {
@@ -167,9 +172,9 @@
 		position: relative;
 	}
 	.watch .content .play {
-		z-index: 10;
+		z-index: 1;
 		letter-spacing: 15px;
-		transition: all .2s var(--ttf);
+		transition: color .2s var(--ttf);
 		margin-top: 2.5rem;
 		font-weight: bold;
 		cursor: pointer;
@@ -191,10 +196,8 @@
 		height: 100%;
 	}
 	.progress-ring__circle {
-		stroke-dasharray: var(--arr);
-		stroke-dashoffset: var(--off);
 		stroke-width: 4;
-		transition: all .15s var(--ttf);
+		transition: stroke-dashoffset .15s var(--ttf);
 		transform-origin: center;
 		stroke-linecap: round;
 		transform: rotate(-90deg);

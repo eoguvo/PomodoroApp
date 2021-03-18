@@ -9,6 +9,14 @@
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://pomodoro-app-olive.vercel.app/">
 	<meta property="og:image" content="https://pomodoro-app-olive.vercel.app//assets/preview.png">
+	<meta property="og:site_name" content="Sicily Pomodoro">
+
+	<meta name="twitter:title" content="Sicily Pomodoro">
+	<meta name="twitter:description" content="A simple Pomodoro Timer Online app for mobile and desktop devices. Sicily help you with study, work, research, coding and much more!">
+	<meta name="twitter:image" content="https://pomodoro-app-olive.vercel.app//assets/preview.png">
+	<meta name="twitter:image:alt" content="Website title and preview">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:creator" content="@DevGustavinho">
 
 	<meta name="google-site-verification" content="02ZsGxTMOvZHFOiKcXAwrqcQhrUH2-lnVUeNVRsQMxE" />
 
@@ -18,8 +26,10 @@
 	<title>Pomodoro Timer Online - Sicily</title>
 
 	<link rel='icon' type='image/png' href='/favicon.png'>
-	<link rel='stylesheet' href='/global.css'>
-	<link rel='stylesheet' href='/build/bundle.css'>
+	<link rel="preload" href="/global.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="/global.css"></noscript>
+	<link rel="preload" href="/build/bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="/build/bundle.css"></noscript>
 
 	<script defer src='/build/bundle.js'></script>
 </head>

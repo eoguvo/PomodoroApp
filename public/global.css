@@ -8,7 +8,6 @@
 	font-family: 'Kumbh Sans', sans-serif;
 	margin: 0;
 	padding: 0;
-	border: 0;
 	font: inherit;
 	color: var(--gray);
 }
@@ -21,7 +20,6 @@ html, body {
 
 body {
 	background-color: var(--bg);
-	padding: 8px;
 	box-sizing: border-box;
 }
 
