@@ -47,7 +47,7 @@ Tabela de conteúdos
     <h1>🎲 Rodando</h1>
 </div>
 
-<h3 align="center">veja tambem o site online <a id="deploy" alt="https://pomodoro-app-olive.vercel.app/" href="https://pomodoro-app-olive.vercel.app/">Aqui</a></h3>
+<h3 align="center">veja tambem o site online <a id="deploy" alt="https://pomodoro-sicily.vercel.app/" href="https://pomodoro-sicily.vercel.app/">Aqui</a></h3>
 
 <div id="pre-requisitos" align="center">
     <h4>Pré-requisitos</h4>
