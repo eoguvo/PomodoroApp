@@ -17,7 +17,8 @@
         toggleModal(false);
       }
     }
-    let colors = JSON.parse(localStorage.getItem('theme')).name || "red";
+    const value = JSON.parse(localStorage.getItem('theme'));
+    let colors = (value && value.name) || "red";
     $: colors, changeTheme(colors)
 </script>
 

@@ -6,8 +6,9 @@
 
 	let circleRef, interval, circumference=0, dashoffset=0, show = false;
 	let current = 'pomo';
-	let breaks = {pomo: 1500, short: 300, long: 900}
+	let breaks = JSON.parse(localStorage.getItem("breaks")) || {pomo: 1500, short: 300, long: 900}
 
+	$: breaks, localStorage.setItem("breaks", JSON.stringify(breaks));
 	$: time = breaks[current];
 	$: if(circleRef) {
 		const perc = (breaks[current]-time) % 360 +1;
@@ -67,6 +68,7 @@
 	}
 </script>
 
+<ThemeContext>
 <main>
 	<h1 class="title">pomodoro</h1>
 	<div class="breaks">
@@ -102,6 +104,7 @@
 	</div>
 	<button on:click="{()=>show=true}" class="config"><img height="24" width="24" src="./assets/config.svg" alt="configuration"></button>
 </main>
+</ThemeContext>
 {#if show}
 	<ThemeContext>
 		<Modal {toggleModal} bind:breaks={breaks} />
