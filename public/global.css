@@ -1,7 +1,9 @@
 :root {
 	--gray: #d7e0ff;
 	--bg: #161932;
-	--primary: rgb(248,112,112);
+	--theme-primary: #f87070;
+	--blue: #70f3f8;
+	--purple: #d881f8;
 	--ttf: cubic-bezier(0.4, 0, 0.2, 1);
 }
 * {

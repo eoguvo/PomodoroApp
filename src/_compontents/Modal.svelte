@@ -1,5 +1,7 @@
 <script>
     import NumberInput from './numberInput.svelte'
+    import { getContext } from 'svelte';
+    const { changeTheme } = getContext('theme');
     export let breaks;
     export let toggleModal;
     let {pomo,short,long} = breaks;
@@ -15,6 +17,9 @@
         toggleModal(false);
       }
     }
+    let colors = "red";
+    $: colors, changeTheme(colors)
+    // rgb(112,243,248)
 </script>
 
 <div
@@ -27,12 +32,26 @@
         <button on:click="{()=>toggleModal(false)}"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path fill="#fff" fill-rule="evenodd" d="M11.95.636l1.414 1.414L8.414 7l4.95 4.95-1.414 1.414L7 8.414l-4.95 4.95L.636 11.95 5.586 7 .636 2.05 2.05.636 7 5.586l4.95-4.95z" ></path></svg></button>
       </header>
       <hr>
-      <main class="content">
+      <section class="time">
         <h2 class="subtitle">TIME (MINUTES)</h2>
         <NumberInput label="pomodoro" bind:time="{pomo}"/>
         <NumberInput label="short break" bind:time="{short}"/>
         <NumberInput label="long break" bind:time="{long}"/>
-      </main>
+      </section>
+      <hr>
+      <section class="colors">
+        <h2 class="subtitle">COLOR</h2>
+        <label>Red
+          <input type="radio" bind:group={colors} value="red">
+        </label>
+        <label>Blue
+          <input type="radio" bind:group={colors} value="blue">
+        </label>
+        <label>Purple
+          <input type="radio" bind:group={colors} value="purple">
+        </label>
+        <!-- red blue purple -->
+      </section>
   </div>
 </div>
 
@@ -67,13 +86,13 @@
         line-height: 1.75rem;
         font-weight: bold;
     }
-    .content {
+    section {
         padding: 2rem 2.5rem;
         display: flex;
         justify-content: space-between;
         flex-flow: column wrap;
     }
-    .content .subtitle {
+    h2 {
       text-align: center;
       letter-spacing: 5px;
       font-weight: bold;
@@ -83,7 +102,7 @@
     }
     /* transition-all opacity-25 hover:opacity-100 */
     @media(max-width: 800px) {
-        .content {
+        .time {
             width: 90%
         }
     }

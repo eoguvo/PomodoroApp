@@ -1,7 +1,8 @@
 <script>
-	import { onMount } from 'svelte'
-	import Modal from './_compontents/Modal.svelte'
-	import formatTime from './_util/formatTime.js'
+	import { onMount } from 'svelte';
+	import Modal from './_compontents/Modal.svelte';
+	import formatTime from './_util/formatTime.js';
+	import ThemeContext from './ThemeContext.svelte';
 
 	let circleRef, interval, circumference=0, dashoffset=0, show = false;
 	let current = 'pomo';
@@ -102,7 +103,9 @@
 	<button on:click="{()=>show=true}" class="config"><img height="24" width="24" src="./assets/config.svg" alt="configuration"></button>
 </main>
 {#if show}
-	<Modal {toggleModal} bind:breaks={breaks} />
+	<ThemeContext>
+		<Modal {toggleModal} bind:breaks={breaks} />
+	</ThemeContext>
 {/if}
 
 <style>
@@ -138,8 +141,8 @@
 		height: 50px;
 		padding: 1rem;
 		font-size: .75rem;
-		color: var(--primary);
-		opacity: .7;
+		color: var(--theme-primary);
+		opacity: .9;
 		transition: all .3s var(--ttf);
 	}
 	.breaks button:hover {
@@ -148,7 +151,7 @@
 	.breaks .selected {
 		color: var(--bg);
 		opacity: 1;
-		background-color: var(--primary);
+		background-color: var(--theme-primary);
 	}
 
 	.watch {
@@ -180,7 +183,7 @@
 		cursor: pointer;
 	}
 	.watch .content .play:hover {
-		color: var(--primary);
+		color: var(--theme-primary);
 	}
 	.watch .content .time {
 		font-size: 80px;
@@ -201,7 +204,7 @@
 		transform-origin: center;
 		stroke-linecap: round;
 		transform: rotate(-90deg);
-		color: var(--primary);
+		color: var(--theme-primary);
 	}
 	.config {
 		padding-top: 1rem;
