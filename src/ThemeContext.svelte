@@ -5,12 +5,16 @@
 
     export let themes = [..._themes];
 
-    let current = themes[0].name;
+    let current = JSON.parse(localStorage.getItem('theme')).name || themes[0].name;
 
     const getTheme = name => themes.find(_theme => _theme.name === name);
     const setProperty = (prop, value) => document.documentElement.style.setProperty(prop, value);
 
     const Theme = writable(getTheme(current));
+
+    Theme.subscribe(value => {
+        localStorage.setItem('theme', JSON.stringify(value));
+    })
 
     setContext('theme', {
         theme: Theme,
@@ -30,6 +34,7 @@
     })
 
     onMount(()=>{
+
         setRootColors(getTheme(current));
     })
 

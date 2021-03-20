@@ -4,7 +4,7 @@
 	import formatTime from './_util/formatTime.js';
 	import ThemeContext from './ThemeContext.svelte';
 
-	let circleRef, interval, circumference=0, dashoffset=0, show = false;
+	let circleRef, interval, circumference=0, dashoffset=0, show = true;
 	let current = 'pomo';
 	let breaks = {pomo: 1500, short: 300, long: 900}
 

@@ -17,9 +17,8 @@
         toggleModal(false);
       }
     }
-    let colors = "red";
+    let colors = JSON.parse(localStorage.getItem('theme')).name || "red";
     $: colors, changeTheme(colors)
-    // rgb(112,243,248)
 </script>
 
 <div
@@ -41,16 +40,20 @@
       <hr>
       <section class="colors">
         <h2 class="subtitle">COLOR</h2>
-        <label>Red
-          <input type="radio" bind:group={colors} value="red">
-        </label>
-        <label>Blue
-          <input type="radio" bind:group={colors} value="blue">
-        </label>
-        <label>Purple
-          <input type="radio" bind:group={colors} value="purple">
-        </label>
-        <!-- red blue purple -->
+        <div class="inputs">
+          <label>
+            <input type="radio" bind:group={colors} value="red">
+            <span class="checkmark" style="background-color: #f87070;"></span>
+          </label>
+          <label>
+            <input type="radio" bind:group={colors} value="blue">
+            <span class="checkmark" style="background-color: #70f3f8;"></span>
+          </label>
+          <label>
+            <input type="radio" bind:group={colors} value="purple">
+            <span class="checkmark" style="background-color: #d881f8;"></span>
+          </label>
+        </div>
       </section>
   </div>
 </div>
@@ -71,7 +74,7 @@
     .modal-wrapper {
         z-index: 12;
         background-color: #1D2D4A;
-        width: 70%;
+        width: 80%;
         max-width: 500px;
         border-radius:.5rem;
         box-shadow: 0 0 12px 2px rgba(255, 255, 255, 0.3);
@@ -100,10 +103,60 @@
       line-height: 1rem;
       font-size: .7rem;
     }
+    .modal-wrapper .colors {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-wrapper .colors .inputs label {
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 22px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    .colors .inputs label input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      transition: all .5s var(--ttf);
+      opacity: .8;
+    }
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+     	top: 9px;
+    	left: 9px;
+    	width: 8px;
+    	height: 8px;
+    	border-radius: 50%;
+    	background: black;
+    }
+    label:hover input ~ .checkmark {
+      opacity: 1;
+    }
+    label input:checked ~ .checkmark:after {
+      display: block;
+    }
     /* transition-all opacity-25 hover:opacity-100 */
     @media(max-width: 800px) {
         .time {
-            width: 90%
+            width: 90%;
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 </style>

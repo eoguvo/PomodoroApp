@@ -36,6 +36,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-direction: column;
     }
     .input-group .label {
       text-align: center;
@@ -71,5 +72,10 @@
     }
     .input-group .input .buttons button:hover {
       opacity: 1;
+    }
+    @media(min-width: 800px) {
+        .input-group {
+            flex-direction: row;
+        }
     }
 </style>
