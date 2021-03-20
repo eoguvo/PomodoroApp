@@ -4,8 +4,8 @@
     import _themes from './_themes.js';
 
     export let themes = [..._themes];
-
-    let current = JSON.parse(localStorage.getItem('theme')).name || themes[0].name;
+    const value = JSON.parse(localStorage.getItem('theme'));
+    let current = (value && value.name) || themes[0].name;
 
     const getTheme = name => themes.find(_theme => _theme.name === name);
     const setProperty = (prop, value) => document.documentElement.style.setProperty(prop, value);

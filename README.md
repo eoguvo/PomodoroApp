@@ -40,8 +40,8 @@ Tabela de conteúdos
 - [X] Troca de ciclos
 - [X] Timer
 - [X] Responsividade
+- [X] Opção de personanalizar
 - [ ] Testes
-- [ ] Opção de personanalizar
 
 <div id="rodando" align="center">
     <h1>🎲 Rodando</h1>
