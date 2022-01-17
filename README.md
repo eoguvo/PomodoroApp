@@ -41,6 +41,7 @@ Tabela de conteúdos
 - [X] Timer
 - [X] Responsividade
 - [X] Opção de personanalizar
+- [X] Eslint e Prettier
 - [ ] Testes
 
 <div id="rodando" align="center">
